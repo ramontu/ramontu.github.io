@@ -33,7 +33,7 @@ export function Layout() {
           <NavLink to="/" className="group flex items-center gap-2 text-sm font-bold">
             <span className="text-term-green text-glow">{profile.handle}</span>
             <span className="text-term-dim">@</span>
-            <span className="text-term-cyan">{profile.host}</span>
+            <span className="text-term-cyan">{profile.bannerHost}</span>
             <span className="animate-blink text-term-green">_</span>
           </NavLink>
           <div className="flex flex-wrap items-center gap-x-3 gap-y-1">

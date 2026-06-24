@@ -4,6 +4,8 @@ export const profile = {
   name: 'Ramon Trilla Urteaga',
   handle: 'ramontu',
   host: 'cloud',
+  // Host label shown only in the top banner (the shell-prompt host stays `host`).
+  bannerHost: 'cloud architect',
   company: 'ENGISOFT',
   // Photo lives in /public. Falls back to initials until the file exists.
   photo: '/profile.jpg',
