@@ -27,6 +27,8 @@ interface UIDict {
   typeLabels: { personal: string; educational: string; work: string };
   contactIntro: string;
   contactCta: string;
+  moreInfo: string;
+  verify: string;
 }
 
 export const ui: Record<Lang, UIDict> = {
@@ -67,6 +69,8 @@ export const ui: Record<Lang, UIDict> = {
     typeLabels: { personal: 'personal', educational: 'educational', work: 'work' },
     contactIntro: 'Open to interesting cloud & platform problems. Get in touch:',
     contactCta: 'Get in touch',
+    moreInfo: 'more info',
+    verify: 'verify',
   },
   es: {
     bootLines: [
@@ -106,6 +110,8 @@ export const ui: Record<Lang, UIDict> = {
     typeLabels: { personal: 'personal', educational: 'educativo', work: 'trabajo' },
     contactIntro: 'Abierto a problemas interesantes de cloud y plataforma. Hablemos:',
     contactCta: 'Hablemos',
+    moreInfo: 'más info',
+    verify: 'verificar',
   },
   ca: {
     bootLines: [
@@ -145,5 +151,7 @@ export const ui: Record<Lang, UIDict> = {
     typeLabels: { personal: 'personal', educational: 'educatiu', work: 'feina' },
     contactIntro: 'Obert a problemes interessants de cloud i plataforma. Parlem-ne:',
     contactCta: 'Parlem-ne',
+    moreInfo: 'més info',
+    verify: 'verificar',
   },
 };

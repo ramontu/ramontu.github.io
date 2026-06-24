@@ -2,9 +2,11 @@ import { profile } from '../data/profile';
 import { experience, education, certifications } from '../data/experience';
 import { Prompt } from '../components/Prompt';
 import { useLang } from '../i18n/LanguageContext';
+import { ui } from '../i18n/ui';
 
 export function About() {
   const { lang } = useLang();
+  const t = ui[lang];
 
   return (
     <div className="space-y-14">
@@ -50,15 +52,27 @@ export function About() {
 
       <section className="space-y-6">
         <Prompt command="ls ~/education" className="animate-fadeUp" />
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="space-y-4">
           {education.map((ed) => (
             <article key={`${ed.school}-${ed.start}`} className="rounded-lg border border-term-border bg-term-panel/50 p-5">
-              <h3 className="font-bold text-term-text">{ed.degree[lang]}</h3>
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <h3 className="font-bold text-term-text">{ed.degree[lang]}</h3>
+                <span className="text-xs text-term-dim">
+                  {ed.start} — {ed.end}
+                </span>
+              </div>
               <p className="text-sm text-term-cyan">{ed.school}</p>
-              <p className="mt-1 text-xs text-term-dim">
-                {ed.start} — {ed.end}
-              </p>
-              {ed.notes && <p className="mt-2 text-xs text-term-green">// {ed.notes}</p>}
+              <p className="mt-2 text-sm leading-relaxed text-term-text">{ed.focus[lang]}</p>
+              {ed.url && (
+                <a
+                  href={ed.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mt-3 inline-block text-xs text-term-green hover:underline"
+                >
+                  ./{t.moreInfo} ↗
+                </a>
+              )}
             </article>
           ))}
         </div>
@@ -75,6 +89,16 @@ export function About() {
               <div>
                 <p className="text-sm text-term-text">{c.name}</p>
                 <p className="text-xs text-term-dim">{c.issuer}</p>
+                {c.url && (
+                  <a
+                    href={c.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-1 inline-block text-xs text-term-green hover:underline"
+                  >
+                    ./{t.verify} ↗
+                  </a>
+                )}
               </div>
               <span className="whitespace-nowrap text-xs text-term-amber">
                 {c.date}

@@ -61,9 +61,10 @@ export const experience: Experience[] = [
 export interface Education {
   school: string;
   degree: L<string>;
+  focus: L<string>;
   start: string;
   end: string;
-  notes?: string;
+  url?: string;
 }
 
 export const education: Education[] = [
@@ -74,8 +75,14 @@ export const education: Education[] = [
       es: 'Grado en Ingeniería Informática',
       ca: 'Grau en Enginyeria Informàtica',
     },
+    focus: {
+      en: 'Computer Engineering (240 ECTS) covering the design, development and management of computer systems — networks, software engineering, information systems and infrastructure — qualifying for the regulated Technical Computer Engineer profession.',
+      es: 'Ingeniería Informática (240 ECTS) que abarca el diseño, desarrollo y gestión de sistemas informáticos —redes, ingeniería del software, sistemas de información e infraestructura— y habilita para la profesión regulada de Ingeniero Técnico Informático.',
+      ca: "Enginyeria Informàtica (240 ECTS) que abasta el disseny, desenvolupament i gestió de sistemes informàtics —xarxes, enginyeria del programari, sistemes d'informació i infraestructura— i habilita per a la professió regulada d'Enginyer Tècnic Informàtic.",
+    },
     start: 'Sep 2023',
     end: 'Jun 2026',
+    url: 'https://www.grauinformaticaigualada.udl.cat/es/pla-formatiu/objectius-competencies/',
   },
   {
     school: 'Universitat de Lleida',
@@ -84,9 +91,14 @@ export const education: Education[] = [
       es: 'Grado en Técnicas de Interacción Digital y de Computación',
       ca: "Grau en Tècniques d'Interacció Digital i de Computació",
     },
+    focus: {
+      en: 'A hands-on computing degree focused on designing and building interactive applications — mobile and web apps, internet technologies, system administration and security, and UX / interface design.',
+      es: 'Un grado de informática muy práctico, centrado en diseñar y construir aplicaciones interactivas: apps móviles y web, tecnologías de internet, administración de sistemas y seguridad, y diseño de interfaces y experiencia de usuario.',
+      ca: "Un grau d'informàtica molt pràctic, centrat a dissenyar i construir aplicacions interactives: apps mòbils i web, tecnologies d'internet, administració de sistemes i seguretat, i disseny d'interfícies i experiència d'usuari.",
+    },
     start: '2019',
     end: '2022',
-    notes: 'Java, Python',
+    url: 'https://www.grauinteraccioicomputacio.udl.cat/es/pla-formatiu/objectius-competencies/',
   },
 ];
 
@@ -95,6 +107,8 @@ export interface Certification {
   issuer: string;
   date: string;
   expires?: string;
+  // LinkedIn / issuer credential verification link. Add when available.
+  url?: string;
 }
 
 // Certifications are kept language-neutral (proper nouns).
