@@ -8,6 +8,7 @@ interface UIDict {
   openInfo: string;
   projectNotFound: string;
   backToProjects: string;
+  back: string;
   neofetch: {
     role: string;
     location: string;
@@ -50,6 +51,7 @@ export const ui: Record<Lang, UIDict> = {
     openInfo: './open --info',
     projectNotFound: 'no such project',
     backToProjects: 'cd ~/projects',
+    back: 'cd ..',
     neofetch: {
       role: 'role',
       location: 'location',
@@ -91,6 +93,7 @@ export const ui: Record<Lang, UIDict> = {
     openInfo: './abrir --info',
     projectNotFound: 'no existe el proyecto',
     backToProjects: 'cd ~/proyectos',
+    back: 'cd ..',
     neofetch: {
       role: 'rol',
       location: 'ubicación',
@@ -132,6 +135,7 @@ export const ui: Record<Lang, UIDict> = {
     openInfo: './obrir --info',
     projectNotFound: 'no existeix el projecte',
     backToProjects: 'cd ~/projectes',
+    back: 'cd ..',
     neofetch: {
       role: 'rol',
       location: 'ubicació',

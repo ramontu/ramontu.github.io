@@ -1,6 +1,8 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { profile } from '../data/profile';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { useLang } from '../i18n/LanguageContext';
+import { ui } from '../i18n/ui';
 
 const nav = [
   { to: '/', label: 'whoami', end: true },
@@ -11,6 +13,19 @@ const nav = [
 ];
 
 export function Layout() {
+  const { lang } = useLang();
+  const t = ui[lang];
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
+  // react-router tracks a history index; > 0 means there is an in-app page to go back to.
+  const canGoBack = ((window.history.state as { idx?: number } | null)?.idx ?? 0) > 0;
+
+  const goBack = () => {
+    if (canGoBack) navigate(-1);
+    else navigate('/');
+  };
+
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-40 border-b border-term-border bg-term-bg/80 backdrop-blur-md">
@@ -46,6 +61,17 @@ export function Layout() {
       </header>
 
       <main className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16">
+        {!isHome && (
+          <button
+            type="button"
+            onClick={goBack}
+            className="mb-8 inline-flex items-center gap-1.5 text-sm text-term-dim transition-colors hover:text-term-green"
+          >
+            <span aria-hidden>←</span>
+            <span className="text-term-dim">$</span>
+            <span>{t.back}</span>
+          </button>
+        )}
         <Outlet />
       </main>
 
