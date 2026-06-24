@@ -113,11 +113,11 @@ export interface Certification {
 
 // Certifications are kept language-neutral (proper nouns).
 export const certifications: Certification[] = [
-  { name: 'AWS Solutions Architect – Professional', issuer: 'Amazon Web Services', date: 'May 2024', expires: 'May 2027' },
-  { name: 'AWS Certified Solutions Architect – Associate', issuer: 'Amazon Web Services', date: 'Jan 2023', expires: 'May 2027' },
-  { name: 'AWS Certified Cloud Practitioner', issuer: 'Amazon Web Services', date: 'Mar 2022', expires: 'May 2027' },
-  { name: 'AWS Partner: Accreditation (Technical)', issuer: 'Amazon Web Services', date: 'Sep 2021' },
-  { name: 'AWS Partner: Accreditation (Business)', issuer: 'Amazon Web Services', date: 'Sep 2021' },
+  { name: 'AWS Solutions Architect – Professional', issuer: 'Amazon Web Services', date: 'May 2024', expires: 'May 2027', url: 'https://www.credly.com/badges/bafea367-43b1-439a-98fb-1177dc68af70/public_url' },
+  { name: 'AWS Certified Solutions Architect – Associate', issuer: 'Amazon Web Services', date: 'Jan 2023', expires: 'May 2027', url: 'https://www.credly.com/badges/969b83d2-1dab-47b9-8cd0-d9cd399c7c89/public_url' },
+  { name: 'AWS Certified Cloud Practitioner', issuer: 'Amazon Web Services', date: 'Mar 2022', expires: 'May 2027', url: 'https://www.credly.com/badges/3824eb47-91a5-49c5-8266-e99f8ba78a7a/public_url' },
+  { name: 'AWS Partner: Accreditation (Technical)', issuer: 'Amazon Web Services', date: 'Sep 2021', url: 'https://www.credly.com/badges/af3909b4-8a1b-446a-a6b2-576e80565903/public_url' },
+  { name: 'AWS Partner: Accreditation (Business)', issuer: 'Amazon Web Services', date: 'Sep 2021', url: 'https://www.credly.com/badges/bd39413c-0227-4024-be51-644632e9110f/public_url' },
   { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Jun 2026', url: 'https://verify.skilljar.com/c/aps55s6ivc2s' },
   { name: 'Introduction to Agent Skills', issuer: 'Anthropic', date: 'Jun 2026', url: 'https://verify.skilljar.com/c/98udbbuwk7ck' },
   { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Jun 2026', url: 'https://verify.skilljar.com/c/e4yo5qo8cr4u' },
