@@ -41,7 +41,8 @@ All content lives in plain TypeScript under `src/data/` — no need to touch com
 | --- | --- |
 | `src/data/profile.ts` | Name, role, bio, taglines, social links |
 | `src/data/experience.ts` | Work history, education, certifications |
-| `src/data/projects.ts` | Personal & educational projects (each has a detail page) |
+| `src/data/projects/` | Personal & educational projects, one file per project (each has a detail page) |
 | `src/data/skills.ts` | Skill groups shown on the Skills page |
 
-> Items marked `TODO` in `projects.ts` are placeholders — replace them with your real projects.
+> To add a project, create a new file in `src/data/projects/` that exports a `Project`,
+> then import it into `src/data/projects/index.ts` and add it to the `projects` array.
