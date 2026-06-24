@@ -68,31 +68,6 @@ export function ProjectDetail() {
         </section>
       )}
 
-      {(project.links?.repo || project.links?.demo) && (
-        <div className="flex flex-wrap gap-3">
-          {project.links.repo && (
-            <a
-              href={project.links.repo}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded border border-term-green/50 px-4 py-2 text-sm text-term-green transition-colors hover:bg-term-green/10"
-            >
-              ./git clone ↗
-            </a>
-          )}
-          {project.links.demo && (
-            <a
-              href={project.links.demo}
-              target="_blank"
-              rel="noreferrer"
-              className="rounded border border-term-cyan/50 px-4 py-2 text-sm text-term-cyan transition-colors hover:bg-term-cyan/10"
-            >
-              ./live-demo ↗
-            </a>
-          )}
-        </div>
-      )}
-
       <Link to="/projects" className="inline-block text-sm text-term-dim hover:text-term-green">
         ← {t.backToProjects}
       </Link>
