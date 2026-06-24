@@ -118,9 +118,9 @@ export const certifications: Certification[] = [
   { name: 'AWS Certified Cloud Practitioner', issuer: 'Amazon Web Services', date: 'Mar 2022', expires: 'May 2027' },
   { name: 'AWS Partner: Accreditation (Technical)', issuer: 'Amazon Web Services', date: 'Sep 2021' },
   { name: 'AWS Partner: Accreditation (Business)', issuer: 'Amazon Web Services', date: 'Sep 2021' },
-  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Jun 2026' },
-  { name: 'Introduction to Agent Skills', issuer: 'Anthropic', date: 'Jun 2026' },
-  { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Jun 2026' },
-  { name: 'Building with the Claude API', issuer: 'Anthropic', date: 'Jun 2026' },
+  { name: 'Introduction to Model Context Protocol', issuer: 'Anthropic', date: 'Jun 2026', url: 'https://verify.skilljar.com/c/aps55s6ivc2s' },
+  { name: 'Introduction to Agent Skills', issuer: 'Anthropic', date: 'Jun 2026', url: 'https://verify.skilljar.com/c/98udbbuwk7ck' },
+  { name: 'Claude Code in Action', issuer: 'Anthropic', date: 'Jun 2026', url: 'https://verify.skilljar.com/c/e4yo5qo8cr4u' },
+  { name: 'Building with the Claude API', issuer: 'Anthropic', date: 'Jun 2026', url: 'https://verify.skilljar.com/c/w8qsq8we7yy6' },
   { name: 'B2 First (English)', issuer: 'Cambridge', date: 'Jan 2022' },
 ];
