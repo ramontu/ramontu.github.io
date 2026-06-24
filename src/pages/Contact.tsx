@@ -1,6 +1,8 @@
 import { profile } from '../data/profile';
 import { Prompt } from '../components/Prompt';
 import { TerminalWindow } from '../components/TerminalWindow';
+import { useLang } from '../i18n/LanguageContext';
+import { ui } from '../i18n/ui';
 
 const channels = [
   { cmd: 'mail', label: 'email', value: profile.links.email, href: `mailto:${profile.links.email}` },
@@ -9,14 +11,16 @@ const channels = [
 ];
 
 export function Contact() {
+  const { lang } = useLang();
+  const t = ui[lang];
+
   return (
     <div className="space-y-8">
       <Prompt command="./contact.sh" />
 
       <TerminalWindow title={`${profile.handle}@${profile.host}: ~/contact`}>
         <p className="text-sm text-term-dim">
-          <span className="text-term-green">$</span> echo &quot;Open to interesting cloud &amp;
-          platform problems. Get in touch:&quot;
+          <span className="text-term-green">$</span> echo &quot;{t.contactIntro}&quot;
         </p>
 
         <ul className="mt-6 space-y-3">

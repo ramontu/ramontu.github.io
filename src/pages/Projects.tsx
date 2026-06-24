@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
 import { Prompt } from '../components/Prompt';
+import { useLang } from '../i18n/LanguageContext';
+import { ui } from '../i18n/ui';
 
 const typeColor: Record<string, string> = {
   personal: 'text-term-green',
@@ -9,13 +11,14 @@ const typeColor: Record<string, string> = {
 };
 
 export function Projects() {
+  const { lang } = useLang();
+  const t = ui[lang];
+
   return (
     <div className="space-y-8">
       <header className="space-y-3">
         <Prompt command="ls -la ~/projects" />
-        <p className="text-sm text-term-dim">
-          // {projects.length} entries — personal &amp; educational work. Click one to read more.
-        </p>
+        <p className="text-sm text-term-dim">{t.projectsIntro(projects.length)}</p>
       </header>
 
       <div className="grid gap-5 sm:grid-cols-2">
@@ -31,20 +34,22 @@ export function Projects() {
               </h3>
               <span className="text-xs text-term-dim">{p.year}</span>
             </div>
-            <p className={`text-xs uppercase tracking-wide ${typeColor[p.type]}`}>{p.type}</p>
-            <p className="mt-2 flex-1 text-sm text-term-dim">{p.tagline}</p>
+            <p className={`text-xs uppercase tracking-wide ${typeColor[p.type]}`}>
+              {t.typeLabels[p.type]}
+            </p>
+            <p className="mt-2 flex-1 text-sm text-term-dim">{p.tagline[lang]}</p>
             <div className="mt-4 flex flex-wrap gap-1.5">
-              {p.tags.map((t) => (
+              {p.tags.map((tag) => (
                 <span
-                  key={t}
+                  key={tag}
                   className="rounded border border-term-border bg-black/30 px-2 py-0.5 text-xs text-term-cyan"
                 >
-                  {t}
+                  {tag}
                 </span>
               ))}
             </div>
             <span className="mt-4 text-sm text-term-green opacity-0 transition group-hover:opacity-100">
-              ./open --info ▸
+              {t.openInfo} ▸
             </span>
           </Link>
         ))}

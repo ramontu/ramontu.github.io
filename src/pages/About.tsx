@@ -1,14 +1,17 @@
 import { profile } from '../data/profile';
 import { experience, education, certifications } from '../data/experience';
 import { Prompt } from '../components/Prompt';
+import { useLang } from '../i18n/LanguageContext';
 
 export function About() {
+  const { lang } = useLang();
+
   return (
     <div className="space-y-14">
       <section className="animate-fadeUp space-y-4">
         <Prompt command="cat about.md" />
         <div className="space-y-4 border-l-2 border-term-border pl-5 text-base leading-relaxed text-term-text">
-          {profile.about.map((p, i) => (
+          {profile.about[lang].map((p, i) => (
             <p key={i}>{p}</p>
           ))}
         </div>
@@ -23,17 +26,17 @@ export function About() {
               className="rounded-lg border border-term-border bg-term-panel/50 p-5 transition-colors hover:border-term-cyan/40"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <h3 className="text-lg font-bold text-term-cyan">{job.role}</h3>
+                <h3 className="text-lg font-bold text-term-cyan">{job.role[lang]}</h3>
                 <span className="text-xs text-term-dim">
-                  {job.start} — {job.end} · {job.duration}
+                  {job.start} — {job.end[lang]} · {job.duration[lang]}
                 </span>
               </div>
               <p className="text-sm text-term-green">
-                {job.company} <span className="text-term-dim">· {job.type}</span>
+                {job.company} <span className="text-term-dim">· {job.type[lang]}</span>
               </p>
-              <p className="text-xs text-term-dim">{job.location}</p>
+              <p className="text-xs text-term-dim">{job.location[lang]}</p>
               <ul className="mt-3 space-y-1.5 text-sm text-term-text">
-                {job.bullets.map((b, i) => (
+                {job.bullets[lang].map((b, i) => (
                   <li key={i} className="flex gap-2">
                     <span className="text-term-green">▹</span>
                     <span>{b}</span>
@@ -49,8 +52,8 @@ export function About() {
         <Prompt command="ls ~/education" className="animate-fadeUp" />
         <div className="grid gap-4 sm:grid-cols-2">
           {education.map((ed) => (
-            <article key={`${ed.degree}-${ed.start}`} className="rounded-lg border border-term-border bg-term-panel/50 p-5">
-              <h3 className="font-bold text-term-text">{ed.degree}</h3>
+            <article key={`${ed.school}-${ed.start}`} className="rounded-lg border border-term-border bg-term-panel/50 p-5">
+              <h3 className="font-bold text-term-text">{ed.degree[lang]}</h3>
               <p className="text-sm text-term-cyan">{ed.school}</p>
               <p className="mt-1 text-xs text-term-dim">
                 {ed.start} — {ed.end}

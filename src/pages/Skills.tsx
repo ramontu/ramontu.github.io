@@ -1,19 +1,24 @@
 import { profile } from '../data/profile';
-import { skills } from '../data/skills';
+import { getSkills } from '../data/skills';
 import { experience, education, certifications } from '../data/experience';
 import { Prompt } from '../components/Prompt';
+import { useLang } from '../i18n/LanguageContext';
+import { ui } from '../i18n/ui';
 
 export function Skills() {
-  const totalYears = '4+';
+  const { lang } = useLang();
+  const t = ui[lang];
+  const skills = getSkills(lang);
+
   const info: [string, string][] = [
-    ['role', `${profile.role} @ ${profile.company}`],
-    ['location', profile.location],
-    ['uptime', `${totalYears} years in cloud`],
-    ['shell', 'bash · python'],
-    ['cloud', 'AWS (Pro / Associate / CCP)'],
-    ['certs', `${certifications.length} certifications`],
-    ['degrees', `${education.length} CS degrees`],
-    ['roles', `${experience.length} positions`],
+    [t.neofetch.role, `${profile.role[lang]} @ ${profile.company}`],
+    [t.neofetch.location, profile.location[lang]],
+    [t.neofetch.uptime, t.neofetchValues.uptime],
+    [t.neofetch.shell, 'bash · python'],
+    [t.neofetch.cloud, 'AWS (Pro / Associate / CCP)'],
+    [t.neofetch.certs, t.neofetchValues.certs(certifications.length)],
+    [t.neofetch.degrees, t.neofetchValues.degrees(education.length)],
+    [t.neofetch.roles, t.neofetchValues.roles(experience.length)],
   ];
 
   return (

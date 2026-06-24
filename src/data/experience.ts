@@ -1,45 +1,66 @@
+import { L } from '../i18n/lang';
+
 export interface Experience {
-  role: string;
+  role: L<string>;
   company: string;
-  type: string;
+  type: L<string>;
   start: string;
-  end: string;
-  duration: string;
-  location: string;
-  bullets: string[];
+  end: L<string>;
+  duration: L<string>;
+  location: L<string>;
+  bullets: L<string[]>;
 }
 
 export const experience: Experience[] = [
   {
-    role: 'Platform Architect',
+    role: { en: 'Platform Architect', es: 'Platform Architect', ca: 'Platform Architect' },
     company: 'ENGISOFT',
-    type: 'Full-time',
+    type: { en: 'Full-time', es: 'Jornada completa', ca: 'Jornada completa' },
     start: 'Sep 2021',
-    end: 'Present',
-    duration: '4 yrs 10 mos',
-    location: 'Igualada, Catalonia, Spain',
-    bullets: [
-      'Design and implement AWS-based infrastructure for SaaS products.',
-      'Build platform functionality and automation in Python.',
-      'Work across compute, storage, networking and serverless: EC2, EKS, Lambda, RDS, DynamoDB, S3, VPC, CloudFormation and more.',
-    ],
+    end: { en: 'Present', es: 'Actualidad', ca: 'Actualitat' },
+    duration: { en: '4 yrs 10 mos', es: '4 años 10 meses', ca: '4 anys 10 mesos' },
+    location: {
+      en: 'Igualada, Catalonia, Spain',
+      es: 'Igualada, Cataluña, España',
+      ca: 'Igualada, Catalunya, Espanya',
+    },
+    bullets: {
+      en: [
+        'Design and implement AWS-based infrastructure for SaaS products.',
+        'Build platform functionality and automation in Python.',
+        'Work across compute, storage, networking and serverless: EC2, EKS, Lambda, RDS, DynamoDB, S3, VPC, CloudFormation and more.',
+      ],
+      es: [
+        'Diseño e implemento infraestructura basada en AWS para productos SaaS.',
+        'Desarrollo funcionalidad de plataforma y automatización en Python.',
+        'Trabajo con cómputo, almacenamiento, redes y serverless: EC2, EKS, Lambda, RDS, DynamoDB, S3, VPC, CloudFormation y más.',
+      ],
+      ca: [
+        'Dissenyo i implemento infraestructura basada en AWS per a productes SaaS.',
+        'Desenvolupo funcionalitat de plataforma i automatització en Python.',
+        'Treballo amb còmput, emmagatzematge, xarxes i serverless: EC2, EKS, Lambda, RDS, DynamoDB, S3, VPC, CloudFormation i més.',
+      ],
+    },
   },
   {
-    role: 'Warehouse Operator',
+    role: { en: 'Warehouse Operator', es: 'Operario de almacén', ca: 'Operari de magatzem' },
     company: 'Mercadona',
-    type: 'Temporary',
+    type: { en: 'Temporary', es: 'Contrato temporal', ca: 'Contracte temporal' },
     start: 'Jul 2019',
-    end: 'Sep 2019',
-    duration: '3 mos',
-    location: 'Barcelona, Spain',
-    bullets: ['Warehouse operations and logistics support.'],
+    end: { en: 'Sep 2019', es: 'Sep 2019', ca: 'Set 2019' },
+    duration: { en: '3 mos', es: '3 meses', ca: '3 mesos' },
+    location: { en: 'Barcelona, Spain', es: 'Barcelona, España', ca: 'Barcelona, Espanya' },
+    bullets: {
+      en: ['Warehouse operations and logistics support.'],
+      es: ['Operativa de almacén y apoyo logístico.'],
+      ca: ['Operativa de magatzem i suport logístic.'],
+    },
   },
 ];
 
 export interface Education {
   school: string;
-  degree: string;
-  field: string;
+  degree: L<string>;
   start: string;
   end: string;
   notes?: string;
@@ -48,15 +69,21 @@ export interface Education {
 export const education: Education[] = [
   {
     school: 'Universitat de Lleida',
-    degree: "Bachelor's Degree in Computer Engineering",
-    field: 'Ingeniería Informática',
+    degree: {
+      en: "Bachelor's Degree in Computer Engineering",
+      es: 'Grado en Ingeniería Informática',
+      ca: 'Grau en Enginyeria Informàtica',
+    },
     start: 'Sep 2023',
     end: 'Jun 2026',
   },
   {
     school: 'Universitat de Lleida',
-    degree: 'Degree in Digital Interaction & Computing Techniques',
-    field: 'Computer Science',
+    degree: {
+      en: 'Degree in Digital Interaction & Computing Techniques',
+      es: 'Grado en Técnicas de Interacción Digital y de Computación',
+      ca: "Grau en Tècniques d'Interacció Digital i de Computació",
+    },
     start: '2019',
     end: '2022',
     notes: 'Java, Python',
@@ -70,6 +97,7 @@ export interface Certification {
   expires?: string;
 }
 
+// Certifications are kept language-neutral (proper nouns).
 export const certifications: Certification[] = [
   { name: 'AWS Solutions Architect – Professional', issuer: 'Amazon Web Services', date: 'May 2024', expires: 'May 2027' },
   { name: 'AWS Certified Solutions Architect – Associate', issuer: 'Amazon Web Services', date: 'Jan 2023', expires: 'May 2027' },

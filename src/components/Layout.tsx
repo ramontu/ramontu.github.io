@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { profile } from '../data/profile';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 const nav = [
   { to: '/', label: 'whoami', end: true },
@@ -20,24 +21,27 @@ export function Layout() {
             <span className="text-term-cyan">{profile.host}</span>
             <span className="animate-blink text-term-green">_</span>
           </NavLink>
-          <ul className="flex flex-wrap items-center gap-1 text-sm">
-            {nav.map((item) => (
-              <li key={item.to}>
-                <NavLink
-                  to={item.to}
-                  end={item.end}
-                  className={({ isActive }) =>
-                    `rounded px-2.5 py-1 transition-colors hover:text-term-green ${
-                      isActive ? 'text-term-green text-glow' : 'text-term-dim'
-                    }`
-                  }
-                >
-                  <span className="text-term-dim">./</span>
-                  {item.label}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <ul className="flex flex-wrap items-center gap-1 text-sm">
+              {nav.map((item) => (
+                <li key={item.to}>
+                  <NavLink
+                    to={item.to}
+                    end={item.end}
+                    className={({ isActive }) =>
+                      `rounded px-2.5 py-1 transition-colors hover:text-term-green ${
+                        isActive ? 'text-term-green text-glow' : 'text-term-dim'
+                      }`
+                    }
+                  >
+                    <span className="text-term-dim">./</span>
+                    {item.label}
+                  </NavLink>
+                </li>
+              ))}
+            </ul>
+            <LanguageSwitcher />
+          </div>
         </nav>
       </header>
 
