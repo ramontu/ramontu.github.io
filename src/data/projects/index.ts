@@ -1,5 +1,6 @@
 import { Project } from './types';
 import { thisSite } from './this-site';
+import { iso27001Adaptation } from './iso-27001-adaptation';
 import { awsOrganizationGovernance } from './aws-organization-governance';
 import { iotIngestInfrastructure } from './iot-ingest-infrastructure';
 
@@ -12,6 +13,7 @@ export type { Project } from './types';
 // ---------------------------------------------------------------------------
 export const projects: Project[] = [
   thisSite,
+  iso27001Adaptation,
   awsOrganizationGovernance,
   iotIngestInfrastructure,
 ];
