@@ -8,6 +8,7 @@ export interface SkillGroup {
 const categoryLabels: Record<string, Record<Lang, string>> = {
   cloud: { en: 'Cloud / AWS', es: 'Cloud / AWS', ca: 'Cloud / AWS' },
   platform: { en: 'Platform / DevOps', es: 'Plataforma / DevOps', ca: 'Plataforma / DevOps' },
+  ai: { en: 'AI / Claude', es: 'IA / Claude', ca: 'IA / Claude' },
   languages: { en: 'Languages', es: 'Lenguajes', ca: 'Llenguatges' },
   tools: { en: 'Tools', es: 'Herramientas', ca: 'Eines' },
   spoken: { en: 'Spoken languages', es: 'Idiomas', ca: 'Idiomes' },
@@ -43,6 +44,10 @@ export function getSkills(lang: Lang): SkillGroup[] {
     {
       category: categoryLabels.platform[lang],
       items: ['Platform Architecture', 'Kubernetes', 'Docker', 'Linux', 'Bash', 'SaaS', 'PaaS'],
+    },
+    {
+      category: categoryLabels.ai[lang],
+      items: ['Claude Code', 'Claude API', 'Model Context Protocol (MCP)', 'Agent Skills'],
     },
     {
       category: categoryLabels.languages[lang],
